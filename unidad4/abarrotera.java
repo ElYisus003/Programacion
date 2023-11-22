@@ -41,17 +41,17 @@ public class abarrotera {
 			//Identificar cuál es la sucursal que más vendió y cuál es la que menos vendió
 			if(ventasSucursal > ventasSMax) {
 				ventasSMax = ventasSucursal;
-				sucursalMax = r+1;
+				sucursalMax = r;
 			}
 			else if(ventasSucursal < ventasSMax) {
 				ventasSMin = ventasSucursal;
-				sucursalMin = r+1;
+				sucursalMin = r;
 			}
 			
 			sumaVentas += ventasSucursal;
 		}
 		
-		promedio = sumaVentas / 7; //Scar un promedio general de todas las sucursales
+		promedio = sumaVentas / 7; //Sacar un promedio general de todas las sucursales
 		
 		//Identificar cuáles sucursales tienen ventas mayores o menores al promedio
 		for(int r=0; r<7; r++) {
@@ -95,8 +95,8 @@ public class abarrotera {
 		
 		System.out.println("=====================================");
 		System.out.println("=====================================");
-		System.out.println("La sucursal que obtuvo mayores ventas es la Sucursal "+sucursalMax+" con una venta de $"+ventasSMax);
-		System.out.println("La sucursal que obtuvo maenores ventas es la Sucursal "+sucursalMin+" con una venta de $"+ventasSMin);
+		System.out.println("La sucursal que obtuvo mayores ventas es la Sucursal "+(sucursalMax+1)+" con una venta de $"+ventasSMax);
+		System.out.println("La sucursal que obtuvo maenores ventas es la Sucursal "+(sucursalMin+1)+" con una venta de $"+ventasSMin);
 		System.out.println();
 		System.out.println("El mes con mayores ventas es el mes de "+mes[mesMax]+" con una venta de $"+ventasMMax);
 		System.out.println("El mes con menores ventas es el mes de "+mes[mesMin]+" con una venta de $"+ventasMMin);
