@@ -7,24 +7,25 @@ public class menuOpciones {
 		Scanner tcld = new Scanner(System.in);
 		int opcion, numero, factorial = 1, potencia, exponente;
 		
-		System.out.println("================================");
-		System.out.println("| [1] Calcular factorial       |");
-		System.out.println("| [2] Calcular potencia        |");
-		System.out.println("| [3] Calcular tabla del 7     |");
-		System.out.println("| [4] Terminar                 |");
-		System.out.println("================================");
-		opcion = tcld.nextInt();
+		
 		
 		do {
+			
+			System.out.println("================================");
+			System.out.println("| [1] Calcular factorial       |");
+			System.out.println("| [2] Calcular potencia        |");
+			System.out.println("| [3] Calcular tabla del 7     |");
+			System.out.println("| [4] Terminar                 |");
+			System.out.println("================================");
+			opcion = tcld.nextInt();
+			
 		switch (opcion) {
 		
 		case 1:
 			System.out.println("Introduce el número para calcular el factorial");
 			numero = tcld.nextInt();
-			
-			for(int i=1; i<=numero; i++) factorial *= i;
-			
-			System.out.println("El factorial de "+numero+" es:"+factorial);
+				
+			System.out.println("El factorial de "+numero+" es:"+factorizar(numero));
 			break;
 			
 		case 2:
@@ -33,16 +34,11 @@ public class menuOpciones {
 			System.out.println("Inroduce el exponente");
 			exponente = tcld.nextInt();
 			
-			potencia =(int) (Math.pow(numero, exponente));
-			
-			System.out.println("La potencia es: "+potencia);
+			System.out.println("La potencia es: "+potencia(numero, exponente));
 			break;
 			
 		case 3:
-			for(int i=1; i<=10; i++) {
-				int multiplicacion = 7 * i;
-				System.out.println("7*"+i+": "+multiplicacion);
-			}
+			tabla7();
 			break;
 		
 		case 4:
@@ -55,5 +51,22 @@ public class menuOpciones {
 		}
 		}while(opcion != 4);
 	}
-
+	
+	public static int factorizar(int num) {
+		int factorial=1;
+		for(int i=1; i<=num; i++) factorial *= i;
+		return factorial;
+	}
+	
+	public static int potencia(int base, int exponente) {
+		int potencia = (int) (Math.pow(base, exponente));
+		return potencia;
+	}
+	
+	public static void tabla7 () {
+		for(int i=1; i<=10; i++) {
+			int multiplicacion = 7 * i;
+			System.out.println("7*"+i+": "+multiplicacion);
+		}
+	}
 }
