@@ -99,6 +99,9 @@ public class sumaMatrices {
 
 				break;
 				
+			case 4:
+				break;
+				
 			default:
 				System.out.println("Opción inválida, intentelo de nuevo");
 				break;
