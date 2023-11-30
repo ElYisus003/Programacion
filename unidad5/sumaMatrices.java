@@ -66,8 +66,10 @@ public class sumaMatrices {
 					matrizB = new int[r2][c2];
 					matrizC = new int[r2][c2];
 					
+					System.out.println();
 					System.out.println("VALORES PARA LA MATRIZ A");
 					leerMatriz(r1, c1, matrizA);
+					System.out.println();
 					System.out.println("VALORES PARA LA MATRIZ B");
 					leerMatriz(r2, c2, matrizB);
 				}
@@ -85,10 +87,13 @@ public class sumaMatrices {
 				break;
 				
 			case 3:
+				System.out.println();
 				System.out.println("MATRIZ A");
 				imprimirMatrices(r1, c1, matrizA);
+				System.out.println();
 				System.out.println("MATRIZ B");
 				imprimirMatrices(r2, c2, matrizB);
+				System.out.println();
 				System.out.println("MATRIZ C");
 				imprimirMatrices(r1, c1, matrizC);
 
@@ -98,6 +103,9 @@ public class sumaMatrices {
 				System.out.println("Opción inválida, intentelo de nuevo");
 				break;
 			}
+			
+			System.out.println("======================================================");
+			System.out.println();
 			
 		}while(opcion != 4);
 	}
