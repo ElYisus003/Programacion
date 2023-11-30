@@ -129,7 +129,7 @@ public class sumaMatrices {
 			System.out.println("======================================================");
 			System.out.println();
 			
-		}while(opcion != 4);
+		}while(opcion != 5);
 	}
 
 }
