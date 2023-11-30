@@ -28,7 +28,7 @@ public class sumaMatrices {
 	public static void imprimirMatrices(int r, int c, int matriz[][]) {
 		for(int ren=0; ren<r; ren++) {
 			for(int col=0; col<c; col++) {
-				System.out.print(matriz[ren][col]+" | ");
+				System.out.print(matriz[ren][col]+"\t");
 			}
 			System.out.println();
 		}
