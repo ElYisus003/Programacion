@@ -25,9 +25,20 @@ public class calcularTemperatura {
 			for(int r=0; r<7; r++) {
 				suma += temperaturas[r][c];
 			}
-			
+			int promedio = suma / 5;
 			System.out.println("Promedio de temperatura del día "+dias[c]+": ");
-			
+		}
+	}
+
+	public static void mas_alta_y_baja(int temperaturas[][], String ciudades){
+		int ciudadAlta, ciudadBaja;
+		int alta[] = new int[6];
+		int baja[] = new int[6];
+		for(int r=0; r<7; r++){
+			for(int c=4; c>0; c--){
+				if(temperaturas[r][c] > temperaturas[r][c-1]) alta = temperaturas[r][c];
+				else if(temperaturas[r][c] < temperaturas[r][c-1]) baja = temperaturas[r][c];
+			}
 		}
 	}
 	
@@ -42,6 +53,7 @@ public class calcularTemperatura {
 		leerTemperaturas(dias, ciudades, temperaturas);
 		
 		//OBTENER EL PROMEDIO TE TEMPERATURAS POR DIAS E IMPRIMIRLO
+		promedioTemperaturas(temperaturas, dias);
 		
 		//CALCULAR CUAL CIUDAD TIENE LA TEMPERATURA MÁS BAJA Y MÁS ALTA DE TODA LA SEMANA
 		
