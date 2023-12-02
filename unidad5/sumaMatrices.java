@@ -35,10 +35,16 @@ public class sumaMatrices {
 	}
 	
 	public static void multiplicarMatrices(int r, int c, int M1[][], int M2[][], int M3[][]) {
-		
+
 		for(int ren=0; ren<r; ren++) {
+			int suma=0, suma2=0;
 			for(int col=0; col<c; col++) {
-				M3[ren][col] = M1[ren][col] * M2[ren][col];
+				for(int a=0; a<r; a++){
+					suma =+ M1[a][col];
+					suma2 =+ M2[col][a];
+				}
+
+				M3[ren][col] = suma * suma2;
 			}
 		}
 	}
@@ -84,7 +90,7 @@ public class sumaMatrices {
 				if(r1 == r2 && c1 == c2) {
 					matrizA = new int[r1][c1];
 					matrizB = new int[r2][c2];
-					matrizC = new int[r2][c2];
+					matrizC = new int[r1][r2];
 					
 					System.out.println();
 					System.out.println("VALORES PARA LA MATRIZ A");
@@ -146,7 +152,7 @@ public class sumaMatrices {
 				imprimirMatrices(r2, c2, matrizB);
 				System.out.println();
 				System.out.println("MATRIZ C");
-				imprimirMatrices(r1, c1, matrizC);
+				imprimirMatrices(r1, r2, matrizC);
 				break;
 			
 			case 6:
