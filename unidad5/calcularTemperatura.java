@@ -26,22 +26,62 @@ public class calcularTemperatura {
 				suma += temperaturas[r][c];
 			}
 			int promedio = suma / 5;
-			System.out.println("Promedio de temperatura del día "+dias[c]+": ");
+			System.out.println("Promedio de temperatura del día "+dias[c]+": "+promedio);
 		}
 	}
 
-	public static void mas_alta_y_baja(int temperaturas[][], String ciudades){
-		int ciudadAlta, ciudadBaja;
-		int alta[] = new int[6];
-		int baja[] = new int[6];
+	public static void alta_baja(int temperaturas[][], String ciudades[]){
+		int alta = 0, baja = 0;
 		for(int r=0; r<7; r++){
-			for(int c=4; c>0; c--){
-				if(temperaturas[r][c] > temperaturas[r][c-1]) alta = temperaturas[r][c];
-				else if(temperaturas[r][c] < temperaturas[r][c-1]) baja = temperaturas[r][c];
+			for(int c=0; c<5; c++){
+				if(temperaturas[r][c] > alta) alta = temperaturas[r][c];
+				if(temperaturas[r][c] < baja) baja = temperaturas[r][c];
+			}
+		}
+		for(int r=0; r<7; r++){
+			for(int c=0; c<5; c++){
+				if(temperaturas[r][c] == alta) System.out.println("La ciudad de "+ciudades[r]+" tuvo la temperatura más alta de la semana");
+				if(temperaturas[r][c] == baja) System.out.println("La ciudad de "+ciudades[r]+" tuvo la temperatura más baja de la semana");
+			}
+		}
+	}
+
+	public static void baja_promedio(int temperaturas[][], String ciudades[]){
+		int promedio = 0;
+		for(int r=0; r<7; r++){
+			for(int c=0; c<5; c++){
+				promedio += temperaturas[r][c];
+			}
+		}
+		promedio = promedio / 35;
+		for(int r=0; r<7; r++){
+			for(int c=0; c<5; c++){
+				if(temperaturas[r][c] < promedio) System.out.println("La ciudad de "+ciudades[r]+" tuvo una temperatura menor al promedio");
+			}
+		}
+	}
+
+	public static void alta_promedio(int temperaturas[][], String dias[]){
+		int promedio = 0;
+		for(int r=0; r<7; r++){
+			for(int c=0; c<5; c++){
+				promedio += temperaturas[r][c];
+			}
+		}
+		promedio = promedio / 35;
+		for(int r=0; r<7; r++){
+			for(int c=0; c<5; c++){
+				if(temperaturas[r][c] > promedio) System.out.println("El día "+dias[c]+" tuvo una temperatura mayor al promedio");
 			}
 		}
 	}
 	
+	public static void lineas() {
+		System.out.println();
+		System.out.println("--------------------------------------------------");
+		System.out.println();
+
+	}
 	
 	public static void main(String []args) {
 		int temperaturas[][] = new int[7][5];
@@ -51,15 +91,23 @@ public class calcularTemperatura {
 		
 		//PEDIR TEMPERATURAS
 		leerTemperaturas(dias, ciudades, temperaturas);
+		lineas();
 		
 		//OBTENER EL PROMEDIO TE TEMPERATURAS POR DIAS E IMPRIMIRLO
 		promedioTemperaturas(temperaturas, dias);
+		lineas();
 		
 		//CALCULAR CUAL CIUDAD TIENE LA TEMPERATURA MÁS BAJA Y MÁS ALTA DE TODA LA SEMANA
+		alta_baja(temperaturas, ciudades);
+		lineas();
 		
 		//CIUDADES CON TEMPERATURAS MÁS BAJAS QUE EL PROMEDIO
-		
+		baja_promedio(temperaturas, ciudades);
+		lineas();
+
 		//DÍAS CON TEMPERATURAS MÁS ALTAS QUE EL PROMEDIO
+		alta_promedio(temperaturas, dias);
+		lineas();
 	}
 
 }
