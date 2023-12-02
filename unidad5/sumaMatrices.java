@@ -34,6 +34,15 @@ public class sumaMatrices {
 		}
 	}
 	
+	public static void multiplicarMatrices(int r, int c, int M1[][], int M2[][], int M3[][]) {
+		
+		for(int ren=0; ren<r; ren++) {
+			for(int col=0; col<c; col++) {
+				M3[ren][col] = M1[ren][col] * M2[ren][col];
+			}
+		}
+	}
+	
 	public static void imprimirMatrices(int r, int c, int matriz[][]) {
 		for(int ren=0; ren<r; ren++) {
 			for(int col=0; col<c; col++) {
@@ -53,8 +62,9 @@ public class sumaMatrices {
 			System.out.println("| [1] Leer matrices        |");
 			System.out.println("| [2] Sumar matrices       |");
 			System.out.println("| [3] Restar matrices      |");
-			System.out.println("| [4] Imprimir matrices    |");
-			System.out.println("| [5] Salir                |");
+			System.out.println("| [4] Multiplicar matrices |");
+			System.out.println("| [5] Imprimir matrices    |");
+			System.out.println("| [6] Salir                |");
 			System.out.println("============================");
 			opcion = tcld.nextInt();
 			
@@ -92,8 +102,12 @@ public class sumaMatrices {
 					System.out.println("ERROR: Es necesario leer las matrices primero");
 					break;
 				}
+				else if(r1 != r2 && c2 != c1) {
+					System.out.println("ERROR: Las dimensiones de las matrices deben ser iguales");
+					break;
+				}
 				
-				sumarMatrices(r1, r2, matrizA, matrizB, matrizC);
+				sumarMatrices(r1, c1, matrizA, matrizB, matrizC);
 				break;
 				
 			case 3:
@@ -101,12 +115,29 @@ public class sumaMatrices {
 					System.out.println("ERROR: Es necesario leer las matrices primero");
 					break;
 				}
+				else if(r1 != r2 && c2 != c1) {
+					System.out.println("ERROR: Las dimensiones de las matrices deben ser iguales");
+					break;
+				}
 				
-				restarMatrices(r1, r2, matrizA, matrizB, matrizC);
+				restarMatrices(r1, c1, matrizA, matrizB, matrizC);
 				break;
 				
 			case 4:
 				
+				if(matrizA == null && matrizB == null) {
+					System.out.println("ERROR: Es necesario leer las matrices primero");
+					break;
+				}
+				else if(r1 != c2 && r2 != c1) {
+					System.out.println("ERROR: Las dimensiones de las matrices deben ser iguales");
+					break;
+				}
+				
+				multiplicarMatrices(r1, c1, matrizA, matrizB, matrizC);
+				break;
+				
+			case 5:
 				System.out.println();
 				System.out.println("MATRIZ A");
 				imprimirMatrices(r1, c1, matrizA);
@@ -117,8 +148,8 @@ public class sumaMatrices {
 				System.out.println("MATRIZ C");
 				imprimirMatrices(r1, c1, matrizC);
 				break;
-				
-			case 5:
+			
+			case 6:
 				break;
 				
 			default:
@@ -129,7 +160,7 @@ public class sumaMatrices {
 			System.out.println("======================================================");
 			System.out.println();
 			
-		}while(opcion != 5);
+		}while(opcion != 6);
 	}
 
 }
