@@ -53,6 +53,12 @@ public class ejercicio2 {
 			System.out.print(decendente[i]+", ");
 		}
 	}
+
+	public static void lineas() {
+		System.out.println();
+		System.out.println("====================================");
+		System.out.println();
+	}
 	
 	public static void main(String []args) {
 		Scanner tcld = new Scanner(System.in);
@@ -66,7 +72,7 @@ public class ejercicio2 {
 			System.out.println("| [2] Decendente    |");
 			System.out.println("| [3] Salir         |");
 			System.out.println("=====================");
-			opcion = tcld.nextInt();
+			opcion = tcld.nextInt();			
 			
 			System.out.print("Introduzca el valor para el primer número: ");
 			num1 = tcld.nextInt();
@@ -75,15 +81,16 @@ public class ejercicio2 {
 			System.out.print("Introduzca el valor para el tercer número: ");
 			num3 = tcld.nextInt();
 			
-			
 			switch(opcion) {
 			
 			case 1:
 				ascendente(num1, num2, num3);
+				lineas();
 				break;
 				
 			case 2:
 				descendente(num1, num2, num3);
+				lineas();
 				break;
 				
 			case 3:
